@@ -1,0 +1,14 @@
+---
+users:
+  - username: maruna
+    use_sudo: no
+
+  - username: jaroslav
+    use_sudo: yes
+    state: absent
+
+  - username: calvin
+    use_sudo: yes
+    auth_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDN9BwPchvXUti2AS/c3eWwZaaX5Ab01Lw+IhNCEgMswbavjao2FFe5F0XakzofuU0AQTyHfAh37kdQnXUrNmAnTDE6DgP/SiQyqREHss3BeP2T84Y2vKHn/prXMzKBKKOdVCxBXru8Ax7hMLa+5EdoA2q8s6nx+BihrrvLyh1mVF6fCLKIXtJmYTG0rRdZo/XuaSjJKioGj8FxuCSpf7dd2Lm3Ne4iqsrR8kJiB481R5CzDP6E4zHyqhaPujweigzWU8ZNKRuuWuwxu5b53Shp/2ybRaYckAuLEOUS9Czo7NYVw0IXF4L/UcjmOp3ePyznYgh1XDObcPWttOb+G8oQ3h48SpDhi2yTiwGbsUQSkJVSSjFMdeH021dtTFQZDu018W5f+4B8bHxHYmHy0j1qcN5iSxw65dkobLQzT6sxHS2PoOLQJ9YqLULyMVWKnkGyGpwq+vyKWJCeqFkrV2heu4DwFba7/RuZPZAZKax5FIEb7C69zLS21W1uNSa51ABFAQpVmPnAKPt4qw/mlLxjzayhB+IdLZwaKrag2FmX/fY55hL8qvr6oL1tbCq3tMK8RRmb/LSPYnHjs9Bf7hK3hDAcWM4h5hqaL5yNttXroOMvATRN9RswGkSkxcr6iOCXfuc/tIPgJsonuX72MWHSZoiKYe5GgR6W6A5ijpsa1Q== cyanzhoufeng@gmail.com
+
+dev_group: coss_admin

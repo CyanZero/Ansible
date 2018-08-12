@@ -1,0 +1,5 @@
+---
+
+doc_root: /var/www/project
+nginx_path: /etc/nginx
+nginx_sites: /etc/nginx/sites-available

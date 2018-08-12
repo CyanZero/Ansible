@@ -1,0 +1,30 @@
+---
+
+- include: group.yml
+
+- name: Add users | create users, shell, home dirs
+  user: 
+    name: '{{ item.username }}' 
+    createhome: yes 
+    state: present
+    shell: /bin/bash       # Defaults to /bin/bash
+    system: no             # Defaults to no
+    groups: # Empty by default, here we give it some groups
+     - '{{dev_group}}'
+     - sudo
+    comment: 'create with ansible'
+  with_items: '{{users}}'
+
+- name: Add keys
+  authorized_key:
+    user: '{{ item.username}}'
+    key: '{{ item.auth_key}}'
+  when: item.auth_key is defined
+  with_items: '{{users}}'
+
+- name: Delete removed user accounts
+  user:
+    name: '{{ item.username }}'
+    state: absent
+  when: item.state is defined and item.state != 'present'
+  with_items: '{{ users }}'

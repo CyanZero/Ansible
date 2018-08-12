@@ -1,0 +1,39 @@
+---
+
+- name: Install nginx
+  when: ansible_os_family == 'Debian'
+  apt:
+    name=nginx
+    state=present
+
+- name: Setup Nginx conf
+  template:
+    src=nginx.conf.tpl
+    dest='{{ nginx_path }}'/nginx.conf
+  notify: restart nginx
+
+- name: Create custom document root
+  file:
+    path={{ doc_root }}
+    state=directory
+    owner=www-data
+    group=www-data
+
+- name: Create HTML file
+  copy:
+    src=index.html 
+    dest={{ doc_root }}/index.html
+    owner=www-data
+    group=www-data mode=0644
+
+- name: Delete default nginx vhost symlink
+  file: 
+    path='{{ nginx_path }}'/sites-enabled/default 
+    state=absent
+
+- name: Create symlink nginx vhost
+  file:
+    src='{{ conf_file }}'
+    dest='{{ nginx_sites }}'/'{{ conf_file }}'
+    state=link
+  notify: restart nginx

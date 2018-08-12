@@ -1,0 +1,14 @@
+---
+
+- name: Ensure group "somegroup" exists
+  group:
+    name: '{{dev_group}}'
+    state: present
+
+- name: Allow 'admin group' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%coss_admin'
+    line: '%coss_admin ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'

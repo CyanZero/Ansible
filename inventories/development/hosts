@@ -1,0 +1,8 @@
+[tag_class_app_server]
+172.31.3.0
+
+[nginx]
+172.31.7.38
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
